@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Market page</title>
+</head>
+<body>
+ Market page
+<a>
+    <table bgcolor="gray">
+        <thead>
+            <tr>
+                <th scope="col" >ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Barcode</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.barcode}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                        <button class="btn btn-outline btn-info">more  info</button>
+                        <button class="btn btn-outline btn-succes">purchase</button>
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+
+
+
+        </tbody>
+
+
+
+
+    </table>
+</a>
+</body>
+</html>
