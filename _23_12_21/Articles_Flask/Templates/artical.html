@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Artical</h1>
+{% for ar in artical.values%}
+{{ar.id}}
+{{ar.author}}
+{% endfor %}
+{% endblock %}
