@@ -1,0 +1,28 @@
+{% extends "baseTemplate.html"  %}
+{% block body %}
+<body bgcolor="cray" topmargin="50px">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<div>
+    <center>
+    <div>
+        <label>fullname</label>
+        <input type="text" name="fullname">
+        <br>
+        <br>
+        <label >username</label>
+        <input type="text" name="username">
+        <br>
+        <br>
+        <label>password</label>
+        <input type="text" name="password">
+        <br>
+        <br>
+        <input type="button" class="btn btn-primary btn-blocl btn-lg" name="register" value="register">
+        <br>
+        <p>Alredy have an account?<a href="/">sign in
+
+    </div>
+        </center>
+</div>
+</body>
+{% endblock %}
