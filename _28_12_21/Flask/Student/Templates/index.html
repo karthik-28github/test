@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+th, td {
+  border: 1px dotted red;
+}
+</style>
+</head>
+<body>
+<tr>
+
+  </tr>
+<table style="width:100%"
+    <tr>
+        <th>id</th>
+        <th>password</th>
+    </tr>
+    {% for x in con %}
+        {% if x %}
+  <tr>
+    <td>{{x.id}}</td>
+    <td>{{x.password}}</td>
+  </tr>
+    {% endif %}
+  {% endfor %}
+</table>
+
+</body>
+</html>
