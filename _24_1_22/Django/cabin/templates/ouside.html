@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Outside</title>
+</head>
+<body>
+<h3> Visit again</h3>
+<h5>start time:{{starttime}}</h5>
+<h5>end time:{{endtime}}</h5>
+<h5> total time:{{totaltime}}</h5>
+<br>
+<br>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" name="display" value="display">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body bgcolor="cyan">
+<center>
+    <form method="POST">
+        {% csrf_token %}
+        <h1> WELCOME TO MCS</h1>
+        <input type="text" name="name" placeholder="enter your name"><br><br>
+        <input type="text" name="mob" placeholder="enter your number"><br><br>
+        <input type="submit" value="enter the cabin">
+    </form>
+
+</center>
+</body>
+</html>

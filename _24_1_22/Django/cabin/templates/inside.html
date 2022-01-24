@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inside</title>
+</head>
+<body>
+<center>
+    <h1>your time is running:</h1>
+    <h3>Name : {{name}}</h3>
+    <h3> Mobile Number :{{mob}}</h3>
+    <h3>start time:{{starttime}} </h3>
+
+<br><br>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="exit" name="exit">
+
+    </form>
+</center>
+</body>
+</html>
