@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD NEW</title>
+</head>
+<body bgcolor="cyan">
+<center>
+<form method="post">
+    {% csrf_token %}
+
+<h1>ENTER THE CONTACT DETAILS</h1>
+<input type="text" name="name"  placeholder="Enter the name" required><br><br>
+<input type="text" name="phoneno"  placeholder="Enter the mobile number" required><br><br>
+<input type="text" name="email"  placeholder="Enter Email address" required><br><br>
+
+
+<input type="submit" name="add" value="save">
+
+
+
+
+
+<center>
+{{name}}<br>
+{{phoneno}}<br>
+{{email}}<br>
+</center>
+
+    </form>
+    </center>
+</body>
+</html>

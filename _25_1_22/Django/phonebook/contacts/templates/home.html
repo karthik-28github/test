@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+</head>
+<body bgcolor="cyan">
+<center>
+
+<h1>WELCOME TO HOME PAGE  OF PHONEBOOK</h1>
+    <br><br>
+    <img width="20%" height="20%" src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/008/598/original/phonebook.png">
+    <br><br>
+      <form method="post">
+            {% csrf_token %}
+
+<input style="height:100px; width:300px" type="submit" name="add" value="add">
+<input style="height:80px; width:350px" type="submit" name="remove" value="remove">
+<input style="height:80px; width:350px" type="submit" name="display" value="display">
+        </form>
+</center>
+
+
+
+
+
+
+
+</body>
+</html>
