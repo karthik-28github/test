@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+
+
+</head>
+
+<body onload="startTime()" >
+<center>
+     <h1>Alaram</h1>
+
+<h3>The current time is</h3>
+    <h1><div id="txt"></div></h1>
+
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
+<form method="post">
+    {% csrf_token %}
+    <h5>Its a 24hr format</h5>
+    <input type="text" name="HH" placeholder="Enter the hour" required><br><br>
+    <input type="text" name="MM" placeholder="Enter the minute" required ><br><br>
+    <br><input type="submit" name="set" value="Set Alaram" >
+</form>
+    <table bgcolor="cyan" border="solid" >
+
+           <tr>
+               <th>Hour</th>
+               <th>Minute</th>
+           </tr>
+            {% for i in all %}
+            <tr>
+                <td>{{i.HH}}</td>
+                <td>{{i.MM}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+</center>
+</body>
+</html>
