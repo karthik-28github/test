@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+<center>
+<h2>WELCOME TO HOME </h2>
+    <form method="post">
+        {% csrf_token %}
+    <h3>Add new items below</h3>
+    <input type="text" name="name"  placeholder="Enter the name of the item">
+    <input type="text" name="price"  placeholder="Enter the price of the item in KG's">
+    <input type="text" name="quantity" placeholder="Enter the Quantity of the item in KG's">
+    <input type="submit" name="add" value="Add this item">
+            <input type="submit" name="update" value="update this item">
+
+
+
+    <h3>The products available are</h3>
+    <table border="solid">
+        <tr>
+            <th>Id</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+        </tr>
+
+        {% for i in item %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.quantity}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+        <br><br>
+    <input type="text" name="id" placeholder="Enter the id number to delete">
+    <input type="submit" name="delete" value="Delete" >
+
+</form>
+
+</center>
+
+
+</body>
+</html>
