@@ -1,0 +1,46 @@
+comment-
+1. create table with comment-
+
+create
+
+
+
+
+SELECT-
+
+
+1,select all the colums from table--select * from <table_name>
+2,select specific colums from table-- select <list of colums> col1,col2,col3  from <table_name>
+3,select using where clasue--select * from table where <condition>
+4,select using distinct-- select distinct <column_name> from <table_name>
+5,select using and-- select * from <table_name> where <condition> and <condtion2>
+6,slect using or --select * from <tabl_name> where <condtion> or <condtion>
+7,select using in -- select * from <table_name> where <column> in <range_value>
+8,select using not in-- select * from <table_name> where <column> not in <range_value>
+9,select using between-- select * from <tablr_namr> where <colum> between <value> and <value>
+10,select using like-- select * from <table_name> where <column_name> like %A   ,A%
+11,select using not like-- select * from <table_name> where <column_name> not like %A   ,A%
+12,select using limit-- 
+13,select using is null -- select * from <table_name> where <column_name> is null
+14,select using is null -- select * from <table_name> where <column_name> is not null
+
+
+INSERT--
+1.insert into all colums-insert into <table_name> values(<list_values>);
+2.inser into specific columns=insert into <table_name> (<list_of_values>) values(<list_of_values>);
+3,insert multiple rows- insert into <table_name> values (<list_of_values>) ,(<list_of_values>),(<list_of_values>),(<list_of_values>);
+4, insert using import-
+5,insert using ignore into<table_name> values (<list_of_values>);
+6,insert intoo select- inser into <table_name> (<list_of_colums>) values < select statement >; 
+
+
+UPDATE--
+1,update single column--update <table_name>set <columne_name>= value where <condition>;
+2,update single column- update <table_name> set <column_name>=value>,<column_name>=value...... where <conditon>
+
+DELETE--
+1,delete a row-- delete from <table_name> where <condition>
+2,delete multiple rows-- delete from <table_name> where <condition> and <condition>
+3,delete duplicate-- 
+delete from table where row_number in(select row number from <table_name> where <colmn_name>in(select distinct
+<column_name> from <table_name> where <condition> group by <column_name> having (<column_name)>1)as A
