@@ -1,0 +1,181 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 35
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database practicenew;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use practicenew;
+Database changed
+mysql> system clear;
+'clear' is not recognized as an internal or external command,
+operable program or batch file.
+mysql> system clear
+'clear' is not recognized as an internal or external command,
+operable program or batch file.
+mysql> show database
+    -> show databases
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database
+show databases
+show databases' at line 1
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table student(id int(10),name varchar(20),kan int,eng(),school varchar(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(),school varchar(20))' at line 1
+mysql> create table student(id int(10),name varchar(20),kan int,eng int,school varchar(20));
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | YES  |     | NULL    |       |
+| name   | varchar(20) | YES  |     | NULL    |       |
+| kan    | int         | YES  |     | NULL    |       |
+| eng    | int         | YES  |     | NULL    |       |
+| school | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> create table student(id int(10),name varchar(20),kan int,eng int,school varchar(20),primary key(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table dummy(id int not null,name varchar(45) not null,kan int,eng(),primary key(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(),primary key(id))' at line 1
+mysql> create table student(id int not null,name varchar(45) not null,kan int not null,eng int not null,primary key(id));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(45) | NO   |     | NULL    |       |
+| kan   | int         | NO   |     | NULL    |       |
+| eng   | int         | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> desc student
+    -> desc student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc student' at line 2
+mysql> desc student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(45) | NO   |     | NULL    |       |
+| kan   | int         | NO   |     | NULL    |       |
+| eng   | int         | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc student id;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| id    | int  | NO   | PRI | NULL    |       |
++-------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into student values(1,"aaaa",50,60);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(2,"bbbb",60,50)(3,"cccc",25,70)(4,"dddd);
+    "> insert into student values(2,"bbbb",60,50)(3,"cccc",25,70)(4,"dddd",85,90);
+  
+  Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 39
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use practicenew;
+Database changed
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show tables;
++-----------------------+
+| Tables_in_practicenew |
++-----------------------+
+| student               |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from students;
+ERROR 1146 (42S02): Table 'practicenew.students' doesn't exist
+ 
+mysql> select * from student;
++----+------+-----+-----+
+| id | name | kan | eng |
++----+------+-----+-----+
+|  1 | aaaa |  50 |  60 |
++----+------+-----+-----+
+1 row in set (0.00 sec)
+
+mysql> insert into student values(2,"bbbb",75,85);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(3,"cccc",65,85);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(4,"dddd",70,85);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(5,"eeee",90,84);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(5,"ffff",101,184);
+ERROR 1062 (23000): Duplicate entry '5' for key 'student.PRIMARY'
+mysql> insert into student values(6,"ffff",101,184);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(7,"gggg",-1,-1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(8,"hhhh",50,51);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_practicenew |
++-----------------------+
+| student               |
++-----------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from student;
++----+------+-----+-----+
+| id | name | kan | eng |
++----+------+-----+-----+
+|  1 | aaaa |  50 |  60 |
+|  2 | bbbb |  75 |  85 |
+|  3 | cccc |  65 |  85 |
+|  4 | dddd |  70 |  85 |
+|  5 | eeee |  90 |  84 |
+|  6 | ffff | 101 | 184 |
+|  7 | gggg |  -1 |  -1 |
+|  8 | hhhh |  50 |  51 |
++----+------+-----+-----+
+8 rows in set (0.00 sec)
+
+mysql> alter table student
