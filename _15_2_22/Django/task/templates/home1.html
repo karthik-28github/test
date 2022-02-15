@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<center>
+    <form method="POST">
+    {% csrf_token %}
+        <br><br>
+        <input type="text" name="task1" placeholder="Enter the task"><br>
+<input type="submit" name="add" value="add">
+        <br><br>
+        <input type="text" name="id1" placeholder="Enter the id"><br>
+        <input type="text" name="task2" placeholder="Enter the updated task"><br>
+<input type="submit" name="update" value="update">
+        <br><br>
+        <input type="text" name="id2" placeholder="Enter the id to delete"><br>
+<input type="submit" name="delete" value="delete">
+
+
+
+<table border="solid">
+    <tr>
+        <th>Task id</th>
+        <th>Task name</th>
+    </tr>
+    {% for i in task %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</form>
+</center>
+</body>
+</html>

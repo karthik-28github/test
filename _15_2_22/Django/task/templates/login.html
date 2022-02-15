@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<center>
+<form method="post">
+    {% csrf_token %}
+
+    <label>Email Id</label>
+    {{form.email}}<br><br>
+    <label>Password</label>
+    {{form.password}}<br><br>
+
+<input type="submit" name="login" value="login" ><br>
+    <a href="register">No account Wanna create One !!!</a>
+    <br><br>
+    {% for i in messages %}
+    {{i}}
+    {% endfor %}
+</form>
+    </center>
+</body>
+</html>
