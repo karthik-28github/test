@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<center>
+    <form method="post">
+        {%for i in messages %}
+        {{i}}
+        {% endfor %}<br>
+        {% csrf_token %}
+         <label>Student ID</label>
+
+        <input type="text" name="id1" placeholder="Id will be ignored for Adding"><br>
+        <label>FirstName</label>
+        {{form.firstname}}<br>
+        <label>LastName</label>
+        {{form.lastname}}<br>
+        <label>StudingIN</label>
+        {{form.studing}}<br>
+        <label>Blood Group</label>
+        {{form.bloodgroup}}<br>
+        <input type="submit" name="add" value="add">
+
+
+
+        <input type="submit" name="update" value="update"><br><br>
+        <input type="text" name="id2" placeholder="Enter the student id ">
+
+        <input type="submit" name="delete" value="delete">
+        <br><br>
+        </form>
+    <table border="solid">
+        <tr>
+            <th>Student ID</th>
+            <th>FirstName</th>
+            <th>Lastname</th>
+            <th>studing In</th>
+            <th>Blood Group</th>
+        </tr>
+        {% for i in std %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.studing}}</td>
+            <td>{{i.bloodgroup}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+</body>
+</html>

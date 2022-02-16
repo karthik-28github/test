@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Principal</title>
+</head>
+<body>
+<center>
+    <form method="post">
+        {%for i in messages %}
+        {{i}}
+        {% endfor %}<br>
+
+
+        {% csrf_token %}
+    <label>Email</label>
+{{form.email}}<br>
+    <label>Password</label>
+{{form.password1}}<br>
+<br><br>
+        <input type="submit" name="loginprincipal" value="login "><br>
+        <a href="registerprincipal">Dont have an account</a>
+        </form>
+    </center>
+</body>
+</html>

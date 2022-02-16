@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Principal</title>
+</head>
+<body>
+<center>
+<form method="post">
+    {%for i in messages %}
+        {{i}}
+        {% endfor %}<br>
+    {% csrf_token %}
+
+    <label>Email</label>
+{{form.email}}<br>
+    <label>Password</label>
+{{form.password1}}<br>
+    <label>Confirm Password</label>
+    {{form.password2}}
+<br><br>
+    <input type="submit" name="registerprincipal" value="register"><br>
+            <a href="loginprincipal">Already have an account</a>
+
+</form>
+    </center>
+</body>
+</html>
