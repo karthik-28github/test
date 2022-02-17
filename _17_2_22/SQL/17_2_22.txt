@@ -1,0 +1,144 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database BANK;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use BANK
+Database changed
+mysql> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100
+    -> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100
+    -> exit
+    -> desc bank
+    -> \c
+mysql> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100),pan varchar(20),adhar integer(20),date_of_birth date,account_no integer(20));
+Query OK, 0 rows affected, 3 warnings (0.05 sec)
+
+mysql> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100),pan varchar(20),adhar integer(20),date_of_birth date,account_no integer(20),netbanking bool,savings bool,current bool);
+Query OK, 0 rows affected, 3 warnings (0.03 sec)
+
+mysql> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100),pan varchar(20),adhar integer(20),date_of_birth date,account_no integer(20),netbanking bool,savings bool,current bool);
+Query OK, 0 rows affected, 3 warnings (0.03 sec)
+
+mysql> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100),pan varchar(20),adhar integer(20),date_of_birth date,account_no integer(20)primary key,netbanking bool,savings bool default true,current bool);
+ERROR 1050 (42S01): Table 'account' already exists
+mysql> create table account(name varchar(50),email varchar(50),mobile_no integer(12),address varchar(100),pan varchar(20),adhar integer(20),date_of_birth date,account_no integer(20)primary key,netbanking bool,savings bool default true,current bool);
+Query OK, 0 rows affected, 3 warnings (0.04 sec)
+
+mysql> desc account:
+    -> /c
+    -> \c
+mysql> desc account;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| name          | varchar(50)  | YES  |     | NULL    |       |
+| email         | varchar(50)  | YES  |     | NULL    |       |
+| mobile_no     | int          | YES  |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| pan           | varchar(20)  | YES  |     | NULL    |       |
+| adhar         | int          | YES  |     | NULL    |       |
+| date_of_birth | date         | YES  |     | NULL    |       |
+| account_no    | int          | NO   | PRI | NULL    |       |
+| netbanking    | tinyint(1)   | YES  |     | NULL    |       |
+| savings       | tinyint(1)   | YES  |     | 1       |       |
+| current       | tinyint(1)   | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+
+Query OK, 0 rows affected, 3 warnings (0.04 sec)
+
+mysql> desc savings;
+ERROR 1146 (42S02): Table 'bank.savings' doesn't exist
+mysql> desc saving;
++-----------------+------------+------+-----+---------+-------+
+| Field           | Type       | Null | Key | Default | Extra |
++-----------------+------------+------+-----+---------+-------+
+| savings_id      | int        | YES  | MUL | NULL    |       |
+| debitcard_no    | int        | YES  |     | NULL    |       |
+| message         | tinyint(1) | YES  |     | NULL    |       |
+| max_limit       | int        | YES  |     | NULL    |       |
+| minimum_balance | float      | YES  |     | NULL    |       |
++-----------------+------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> create current(current_id int(20),creditcard bool,overdraft bool,message bool,max_limit int(20), foreign key(current_id) references account(account_no));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'current(current_id int(20),creditcard bool,overdraft bool,message bool,max_limit' at line 1
+mysql> create table current (current_id int(20),creditcard bool,overdraft bool,message bool,max_limit int(20), foreign key(current_id) references account(account_no));
+Query OK, 0 rows affected, 2 warnings (0.06 sec)
+
+mysql> desc current;
++------------+------------+------+-----+---------+-------+
+| Field      | Type       | Null | Key | Default | Extra |
++------------+------------+------+-----+---------+-------+
+| current_id | int        | YES  | MUL | NULL    |       |
+| creditcard | tinyint(1) | YES  |     | NULL    |       |
+| overdraft  | tinyint(1) | YES  |     | NULL    |       |
+| message    | tinyint(1) | YES  |     | NULL    |       |
+| max_limit  | int        | YES  |     | NULL    |       |
++------------+------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql>  alter table saving(savings_id int(20
+    -> ) primary key);
+
+ERROR 1051 (42S02): Unknown table 'bank.savings'
+mysql> drop table saving;
+Query OK, 0 rows affected (0.04 sec)
+
+
+mysql> create table current (current_id int(20) primary key ,creditcard bool,overdraft bool,message bool,max_limit int(20), foreign key(current_id) references account(account_no));
+Query OK, 0 rows affected, 2 warnings (0.05 sec)
+
+mysql> desc saving;
++-----------------+------------+------+-----+---------+-------+
+| Field           | Type       | Null | Key | Default | Extra |
++-----------------+------------+------+-----+---------+-------+
+| savings_id      | int        | NO   | PRI | NULL    |       |
+| debitcard_no    | int        | YES  |     | NULL    |       |
+| message         | tinyint(1) | YES  |     | NULL    |       |
+| max_limit       | int        | YES  |     | NULL    |       |
+| minimum_balance | float      | YES  |     | NULL    |       |
++-----------------+------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> create table current (current_id int(20) primary key ,creditcard bool,overdraft bool,message bool,max_limit int(20), foreign key(current_id) references account(account_no));
+Query OK, 0 rows affected, 2 warnings (0.05 sec)
+
+mysql> desc saving;
++-----------------+------------+------+-----+---------+-------+
+| Field           | Type       | Null | Key | Default | Extra |
++-----------------+------------+------+-----+---------+-------+
+| savings_id      | int        | NO   | PRI | NULL    |       |
+| debitcard_no    | int        | YES  |     | NULL    |       |
+| message         | tinyint(1) | YES  |     | NULL    |       |
+| max_limit       | int        | YES  |     | NULL    |       |
+| minimum_balance | float      | YES  |     | NULL    |       |
++-----------------+------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> desc current;
++------------+------------+------+-----+---------+-------+
+| Field      | Type       | Null | Key | Default | Extra |
++------------+------------+------+-----+---------+-------+
+| current_id | int        | NO   | PRI | NULL    |       |
+| creditcard | tinyint(1) | YES  |     | NULL    |       |
+| overdraft  | tinyint(1) | YES  |     | NULL    |       |
+| message    | tinyint(1) | YES  |     | NULL    |       |
+| max_limit  | int        | YES  |     | NULL    |       |
++------------+------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> desc current;
