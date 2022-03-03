@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting polls</title>
+</head>
+<body>
+<center>
+<form method="post">
+    {% csrf_token %}
+    <h1>{{question}}</h1>
+<input type="checkbox" name="op1" value="{{o1}"/> {{o1}}&nbsp
+<input type="checkbox" name="op2" value="{{o2}}"/>{{o2}}<br><br>
+<input type="checkbox" name="op3" value="{{o3}}"/>{{o3}}&nbsp
+<input type="checkbox" name="op4" value="{{o4}}"/>{{o4}}<br><br>
+  <input type="submit" name="submit" value="cast"><br><br>
+    <input type="submit" name="getresult" value="Get_Result">
+
+</form>
+     <table border="solid">
+        <tr>
+            <th>options</th>
+            <th>percenatage</th>
+        </tr>
+        {% for i in polls %}
+        <tr>
+            <td>{{i.option}}</td>
+            <td>{{i.percentage}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
